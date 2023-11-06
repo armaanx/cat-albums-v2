@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Input } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Loader2, X } from "lucide-react";
 import useDebounce from "@/lib/useDebounce";
@@ -27,8 +27,6 @@ export default function Home() {
   });
 
 
-
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchValue(e.target.value);
@@ -38,11 +36,14 @@ export default function Home() {
     setSearchValue('');
     setHidden(true);
   };
+
+  
+  
   
   return (
     <div className="h-screen w-screen flex flex-col gap-2 items-center justify-center">
-      <div className="flex flex-row items-baseline justify-center space-x-4 w-[300px]">
-      <h1 className="font-bold text-3xl mb-4 ">Cat Albums</h1>
+      <div className="flex flex-row items-baseline justify-center space-x-4 w-[300px] mb-5 mt-5">
+      <h1 className="font-bold text-3xl">Cat Albums</h1>
       <ThemeToggle />
       </div>
       
@@ -55,7 +56,7 @@ export default function Home() {
         type="text"
       />
       
-        <X onClick={handleClear} className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500 hover:text-black dark:hover:text-white animate-in"/>
+        {searchValue !== '' && <X onClick={handleClear} className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500 hover:text-black dark:hover:text-white animate-in"/>}
         
         {isLoading && searchValue !== '' &&
           <div className="absolute left-0 mt-2 w-full bg-popover p-1 rounded-md shadow-md z-10 text-center">
@@ -87,8 +88,8 @@ export default function Home() {
         </div>): null}
     </div>
 
-      <div className="w-[400px] h-[400px] mx-auto">
-        <CanvasComponent imgsrc={imgsrc} />
+      <div className="w-[400px] h-fit mx-auto mb-10">
+        <CanvasComponent imgsrc={imgsrc}  />
       </div>
     </div>
   )
