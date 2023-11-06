@@ -38,7 +38,6 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL('https://cat-albums.vercel.app/'),
-    themeColor: '#fff',
     ...(noIndex && {
       robots:{
         index: false,
