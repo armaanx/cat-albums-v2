@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
-import { Loader2, X } from "lucide-react";
+import { Heart, Loader2, X } from "lucide-react";
 import useDebounce from "@/lib/useDebounce";
 import fetchAlbums from "@/components/fetchAlbum";
 
@@ -41,7 +41,7 @@ export default function Home() {
   
   
   return (
-    <div className="h-screen w-screen flex flex-col gap-2 items-center justify-center">
+    <div className="h-screen w-screen flex flex-col gap-2 items-center justify-center p-3">
       <div className="flex flex-row items-baseline justify-center space-x-4 w-[300px] mb-5 mt-5">
       <h1 className="font-bold text-3xl">Cat Albums</h1>
       <ThemeToggle />
@@ -88,9 +88,20 @@ export default function Home() {
         </div>): null}
     </div>
 
-      <div className="w-[400px] h-fit mx-auto mb-10">
+      <div className="w-[385px] h-fit mx-auto mb-3">
         <CanvasComponent imgsrc={imgsrc}  />
       </div>
+      <footer className="flex flex-row items-center justify-center gap-2 xs:mt-8 mt-0">
+        <span className="font-semibold">Made by {' '}
+          <a
+            className="hover:text-blue-500 underline underline-offset-2"
+            href="https://armaan.tech"
+            target="_blank"
+            rel="noopener noreferrer">
+            Armaan
+          </a> </span>
+        <Heart className=" w-5 h-5 inline-block font-semibold" />
+        </footer>
     </div>
   )
 }

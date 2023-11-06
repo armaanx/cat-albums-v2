@@ -30,7 +30,7 @@ function CanvasComponent({ imgsrc }: { imgsrc: string }) {
             const x = (canvas.width - img2.width) / 2;
             const y = (canvas.height - img2.height) / 2;
               
-            ctx.drawImage(img2, x-5, y+74, 200, 200);
+            ctx.drawImage(img2, x+2, y+81, 200, 200);
             ctx.drawImage(img, 0, 0, 382, 383);
 
           }
@@ -58,7 +58,7 @@ function CanvasComponent({ imgsrc }: { imgsrc: string }) {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <canvas ref={canvasRef} width={400} height={400}></canvas>
+            <canvas ref={canvasRef} width={385} height={385}></canvas>
             <div className="flex flex-row items-center justify-center gap-3 mt-4">
                 <Button variant={'default'} disabled={imgsrc === '/select.png' || imgsrc === undefined} onClick={handleDownload}><Download className="h-5 w-5" /></Button>
                 <Button onClick={handleCatChange}><Cat className="h-5 w-5" /></Button>
